@@ -29,7 +29,4 @@ export class FormConnexionComponent implements OnInit {
       password:['',[Validators.required]],
       });
    }
-
-
-
 }
