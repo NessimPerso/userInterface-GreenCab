@@ -1,12 +1,12 @@
-<form [formGroup] = "connexionForm"  class="col-lg-6 offset-lg-3" id="formconnexion">
+<form [formGroup] = "connexionForm"  id="formconnexion">
 	<fieldset id="fieldsetForm"> 
 		<legend> Formulaire de connexion</legend>
-	<input type="Text" class="form-control" id="firstName" placeholder="Prenom" formControlName="firstName">
-	<input type="Text" class="form-control" id="lastName" placeholder="Nom" formControlName="lastName">
-	<input type="number" class="form-control" id="age" placeholder="Age" formControlName="age" min="0">
+	<input type="text" class="form-control" id="firstName" placeholder="Prenom" formControlName="firstName">
+	<input type="text" class="form-control" id="lastName" placeholder="Nom" formControlName="lastName">
+	<input type="text" class="form-control" id="phoneNumber" placeholder="Numéro Telephone" formControlName="phoneNumber">
 	<input type="email" class="form-control" id="mail" placeholder="Mail" formControlName="mail">
+	<input type="password" class="form-control" id="password" placeholder="Mot de passe" formControlName="password">
 	
-	<input type="Text" class="form-control" id="comment" placeholder="Commentaire" formControlName="comment">
 	<button type="submit"  class="btn btn-primary" >Envoyer</button>
 </fieldset>
 </form>

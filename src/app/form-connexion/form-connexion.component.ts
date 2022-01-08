@@ -24,9 +24,9 @@ export class FormConnexionComponent implements OnInit {
     this.connexionForm = this.fb.group({
       firstName : ['', [Validators.required]] ,
       lastName :['',[Validators.required]] ,
-      age :['',[Validators.required]] ,
+      phoneNumber :['',[Validators.required]] ,
       mail:['',[Validators.required,Validators.email]],
-      comment:['',[Validators.required]],
+      password:['',[Validators.required]],
       });
    }
 
