@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AccountService } from '../services/account.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-form-inscription',
@@ -12,7 +14,7 @@ export class FormInscriptionComponent implements OnInit {
 	
 	inscriptionForm !: FormGroup;
 
-	constructor(private fb : FormBuilder,private router: Router) {
+	constructor(private fb : FormBuilder,private router: Router, private accountService:AccountService) {
 	 }
   
 	 ngOnInit(): void {
@@ -29,4 +31,9 @@ export class FormInscriptionComponent implements OnInit {
 		});
 	 }
 
+	public register(){
+		if (this.inscriptionForm.valid){
+			this.accountService.register(this.inscriptionForm.value);
+		}
+	}
 }

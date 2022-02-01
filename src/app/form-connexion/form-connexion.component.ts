@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AccountService } from '../services/account.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class FormConnexionComponent implements OnInit {
 
   connexionForm !: FormGroup;
 
-  constructor(private fb : FormBuilder,private router: Router) {
+  constructor(private fb : FormBuilder,private router: Router, private accountService:AccountService) {
    }
 
    ngOnInit(): void {
@@ -22,11 +23,14 @@ export class FormConnexionComponent implements OnInit {
 
    initForm() {
     this.connexionForm = this.fb.group({
-      firstName : ['', [Validators.required]] ,
-      lastName :['',[Validators.required]] ,
-      phoneNumber :['',[Validators.required]] ,
       mail:['',[Validators.required,Validators.email]],
       password:['',[Validators.required]],
       });
+   }
+
+   public connect(){
+	   if (this.connexionForm.valid){
+		   this.accountService.login(this.connexionForm.get('mail')?.value, this.connexionForm.get('password')?.value);
+	   }
    }
 }
